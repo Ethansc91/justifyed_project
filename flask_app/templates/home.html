@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Home Page</title>
+</head>
+<body>
+    <div id="container">
+        <div class="nav-bar d-flex justify-content-between align-items-center">
+            <div class="left-side justify-content-between d-flex align-items-center">
+                <h1 class="nav-bar-header me-5">Justifyed</h1>
+                <input class="search-bar" type="text" placeholder="...Search">
+            </div>
+            <div class="right-side d-flex align-items-center">
+                <a class="right-nav  me-5" href="/home">Home</a></li>
+                <a class="right-nav me-5" href="/store">Store</a>
+                <a class="right-nav me-5" href="/group">Group</a>
+                <a class="right-nav me-5" href="/schedule">Schedule</a>
+                <img class="profile-pic" src="{{ url_for('static', filename='images/e_iamge.jpg') }}" alt="Initial-Photo" onclick="toggleMenu()">
+            </div>
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info d-flex align-items-center">
+                        <img src="{{ url_for('static', filename='images/e_iamge.jpg') }}" alt="Initial-Photo">
+                        <h2 class="text-white">{{user.first_name}} {{user.last_name}}</h2>
+                    </div>
+                    <hr>
+                    <div class="sub-menu-link d-flex align-items-center">
+                        <img class="profile-icon" src="{{ url_for('static', filename='images/profile_icon.png') }}" alt="">
+                        <a href="/profile" class="sub-menu-link">Profile</a>
+                    </div>
+                    <div class="sub-menu-link d-flex align-items-center">
+                        <img class="profile-icon" src="{{ url_for('static', filename='images/settings.png') }}" alt="">
+                        <a href="/profile" class="sub-menu-link">Settings</a>
+                    </div>
+                    <div class="sub-menu-link d-flex align-items-center">
+                        <img class="profile-icon" src="{{ url_for('static', filename='images/logout.icns') }}" alt="">
+                        <a href="/logout" class="sub-menu-link">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content mx-auto">
+            <img class="group-photo" src="{{ url_for('static', filename='images/justifyed_group_photo.jpeg') }}" alt="Justifyed-group-photo">
+            <div class="form-wall mt-5 d-flex justify-content-between">
+                <form class="send-form" action="/submit_form" method="POST">
+                    <h5 class="text-center">Want us to sing at your church</h5>
+                    <h6 class="text-success text-center">Fill out form below</h6>
+                    {% with messages = get_flashed_messages(category_filter=['form']) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p class="text-danger me-2"> *{{message}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <label class="labels mb-2" for="name">Name:</label>
+                    <input name="name" class="input-values form-control" type="text">
+                    <br>
+                    <label class="labels mb-2" for="email">Email:</label>
+                    <input name="email" class="input-values form-control" type="text">
+                    <br>
+                    <label class="labels mb-2" for="church_name">Church Name:</label>
+                    <input name="church_name" class="input-values form-control" type="text">
+                    <br>
+                    <label class="labels mb-2" for="church_address">Church Address:</label>
+                    <input name="church_address" class="input-values form-control" type="text">
+                    <br>
+                    <label class="labels mb-2" for="description">Description:</label>
+                    <textarea class="form-control mb-4" name="description"></textarea>
+                    <input class="submit" type="submit" value="Send">
+                </form>
+                <div class="right-main-content">
+                    <h1 class="text-center">Justifyed Supporters Wall</h1>
+                    <div class="wall-content-container">
+                        {% for comment in comments %}
+                        <div class="wall-content flex-wrap d-flex flex-column mt-4">
+                            <div class="top-wall d-flex justify-content-between">
+                                <h3>Posted By: {{comment.creator.first_name}} {{comment.creator.last_name}}</h3>
+                                <p>Rating: {{comment.rating}}/10</p>
+                            </div>
+                            <p class="description d-flex flex-wrap">{{comment.content}}</p>
+                            {% if comment.creator.id == session['user'] %}
+                            <a class="delete-text" href="/delete_comment/{{comment.id}}">Delete</a>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <form action="/add_comment" method="POST">
+                        <div class="write-content mt-5">
+                            {% with messages = get_flashed_messages(category_filter=['comments']) %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <p class="text-danger"> *{{message}}</p>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                            <textarea id="content" name="content" class="form-control" placeholder="Write..."></textarea>
+                            <div class="submit-rate mt-2 d-flex flex-row justify-content-end align-items-center">
+                                {% with messages = get_flashed_messages(category_filter=['rating']) %}
+                                    {% if messages %}
+                                        {% for message in messages %}
+                                            <p class="text-danger me-2"> *{{message}}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endwith %}
+                                <select name="rating" class="submit-text submit me-3">
+                                    <option>Rate</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <input class="submit" type="submit" value="Post">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-copyright">
+        <img class="cr-logo me-2" src="{{ url_for('static', filename='images/copyright-symbol.png') }}" alt="Copyright-logo">
+        <p>JustifyedMusic 2023</p>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/profile_dropdown.js') }}"></script>
+</body>
+</html>

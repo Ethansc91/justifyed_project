@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav-bar {
+    padding: 5px 100px;
+    background-color: #212529;
+}
+
+.nav-bar-header{
+    font-weight: bold;
+    color: #a47e1b;
+    font-size: 3rem;
+}
+
+.register {
+    margin: auto;
+    margin-top: 120px;
+    padding: 30px 50px;
+    width: 700px;
+    border: #353535 solid 2px;
+    box-shadow: 1px 1px 5px #000;
+}
+
+.back-login {
+    color: #a47e1b;
+}
+
+.container-header {
+    font-weight: bold;
+    color: #98c1d9;
+}
+
+.submit {
+    background-color: #212529;
+    box-shadow: 1px 1px 5px #000;
+    border: none;
+    color: #a47e1b;
+    font-weight: bold;
+    padding: 5px 10px;
+    float: right;
+}
+
+.bottom-copyright {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 412px;
+}
+
+.cr-logo {
+    height: 20px;
+}
+

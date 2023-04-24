@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile_settings.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Profile Page</title>
+</head>
+<body>
+    <div id="container">
+        <div class="nav-bar d-flex justify-content-between align-items-center">
+            <div class="left-side justify-content-between d-flex align-items-center">
+                <h1 class="nav-bar-header me-5">Justifyed</h1>
+                <input class="search-bar" type="text" placeholder="...Search">
+            </div>
+            <div class="right-side d-flex align-items-center">
+                <a class="right-nav  me-5" href="/home">Home</a></li>
+                <a class="right-nav me-5" href="/store">Store</a>
+                <a class="right-nav me-5" href="/group">Group</a>
+                <a class="right-nav me-5" href="/schedule">Schedule</a>
+                <button class="submit"><a class="submit-text" href="/logout">Logout</a></button>
+            </div>
+        </div>
+        <div class="main-content d-flex">
+            <div class="side-nav">
+                <div class="account d-flex flex-column align-items-center">
+                    <h3>Account Details</h3>
+                    <a href="/profile">Account</a>
+                </div>
+                <div class="settings d-flex flex-column align-items-center">
+                    <h3>Settings</h3>
+                    <a href="/settings">Settings</a>
+                </div>
+            </div>
+            <div class="profile-content">
+                <div class="user-name d-flex align-items-center justify-content-between">
+                    <h4 class="profile-headers">Name</h4>
+                    <h4 class="user-info">{{user.first_name}} {{user.last_name}}</h4>
+                </div>
+                <div class="user-email d-flex align-items-center justify-content-between">
+                    <h4 class="profile-headers">Email</h4>
+                    <h4 class="user-info">{{user.email}}</h4>
+                </div>
+                <div class="user-description d-flex align-items-center justify-content-between">
+                    <h4 class="profile-headers">Description About You</h4>
+                    {% if user.description == None or user.description == '' %}
+                    <form action="/update_users_description/{{user.id}}" method="POST">
+                        <div class="description d-flex flex-column">
+                            <textarea name="description" class="" cols="50" rows="3" placeholder="(Optional) Write..."></textarea>
+                            <input class="description-submit" type="submit">
+                        </div>
+                    </form>
+                    {% else %}
+                    <p>{{user.description}}</p>
+                    {% endif %}
+                </div>
+                <div class="update-info d-flex flex-column align-items-center">
+                    <h3>Click to update information</h3>
+                    <a class="update-link mt-3" href="/update_user/{{user.id}}">Update Your Information</a>
+                </div>
+                <img class="profile-pic" src="{{ url_for('static', filename='images/e_iamge.jpg') }}" alt="Profile-Pic">
+                {% if user.description == None %}
+                <div class="bottom-copyright">
+                    <img class="cr-logo me-2" src="{{ url_for('static', filename='images/copyright-symbol.png') }}" alt="Copyright-logo">
+                    <p>JustifyedMusic 2023</p>
+                </div>
+                {% else %}
+                <div class="bottom-copyright-second">
+                    <img class="cr-logo me-2" src="{{ url_for('static', filename='images/copyright-symbol.png') }}" alt="Copyright-logo">
+                    <p>JustifyedMusic 2023</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    overflow: auto;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-bar {
+    border-bottom: 3px solid #000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 5px 100px;
+    background-color: #212529;
+}
+
+.nav-bar-header{
+    font-weight: bold;
+    color: #a47e1b;
+    font-size: 3rem;
+}
+
+.right-nav {
+    color: #ffbf69;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.right-nav:hover {
+    color: #fb8b24;
+}
+
+.profile-pic {
+    height: 55px;
+    width: 58px;
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+
+.profile-pic:hover {
+    border: 3px solid grey;
+}
+
+.search-bar {
+    padding: 0px 600px 0px 10px;
+    height: 40px;
+    background-color: #dad7cd;
+    border-radius: 100px;
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu {
+    background-color: #212529;
+    padding: 20px;
+    margin: 10px;
+}
+
+.sub-menu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link {
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0px;
+}
+
+.sub-menu-link img {
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub-menu-link a:hover {
+    height: 40px;
+    transition: 0.1s;
+    font-size: 20px;
+}
+
+.user-info h3 {
+    font-weight: 300;
+}
+
+.user-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.profile-icon {
+    height: 35px;
+}
+
+.main-content {
+    width: 1548px;
+    margin-top: 120px;
+}
+
+.schedule-content {
+    padding: 20px;
+    border: 2px solid #000;
+    width: 500px;
+}
+
+.thumbs-up {
+    height: 50px;
+}
+
+.bottom-copyright {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 412px;
+}
+
+.cr-logo {
+    height: 20px;
+}
+
+

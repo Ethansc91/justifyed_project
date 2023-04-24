@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/store.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Store</title>
+</head>
+<body>
+    <div id="container">
+        <div class="nav-bar d-flex justify-content-between align-items-center">
+            <div class="left-side justify-content-between d-flex align-items-center">
+                <h1 class="nav-bar-header me-5">Justifyed</h1>
+                <input class="search-bar" type="text" placeholder="...Search">
+            </div>
+            <div class="right-side d-flex align-items-center">
+                <a class="right-nav  me-5" href="/home">Home</a></li>
+                <a class="right-nav me-5" href="/store">Store</a>
+                <a class="right-nav me-5" href="/group">Group</a>
+                <a class="right-nav me-5" href="/schedule">Schedule</a>
+                <img class="profile-pic" src="{{ url_for('static', filename='images/e_iamge.jpg') }}" alt="Initial-Photo" onclick="toggleMenu()">
+            </div>
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info d-flex align-items-center">
+                        <img src="{{ url_for('static', filename='images/e_iamge.jpg') }}" alt="Initial-Photo">
+                        <h2 class="text-white">{{user.first_name}} {{user.last_name}}</h2>
+                    </div>
+                    <hr>
+                    <div class="sub-menu-link d-flex align-items-center">
+                        <img class="profile-icon" src="{{ url_for('static', filename='images/profile_icon.png') }}" alt="">
+                        <a href="/profile" class="sub-menu-link">Profile</a>
+                    </div>
+                    <div class="sub-menu-link d-flex align-items-center">
+                        <img class="profile-icon" src="{{ url_for('static', filename='images/settings.png') }}" alt="">
+                        <a href="/profile" class="sub-menu-link">Settings</a>
+                    </div>
+                    <div class="sub-menu-link d-flex align-items-center">
+                        <img class="profile-icon" src="{{ url_for('static', filename='images/logout.png') }}" alt="">
+                        <a href="/logout" class="sub-menu-link">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content d-flex justify-content-between">
+            <div class="side-nav">
+                <h1 class="side-header">Select a Product</h1>
+                <ul class="link-holder text-center">
+                    <li class="list-holder"><a class="store-links" href="">All</a></li>
+                    <li class="list-holder"><a class="store-links" href="">FEATURED</a></li>
+                    <li class="list-holder"><a class="store-links" href="">SHIRTS</a></li>
+                    <li class="list-holder"><a class="store-links" href="">PANTS</a></li>
+                    <li class="list-holder"><a class="store-links" href="">HATS/JEWLS</a></li>
+                    <li class="list-holder"><a class="store-links" href="">Misc.</a></li>
+                </ul>
+            </div>
+            <div class="middle-content mx-auto">
+                <h1 class="justifyed-store text-center">Justifyeds Store</h1>
+                <div class="shopping-product d-flex align-items-center justify-content-between">
+                    <p class="page-identifier">All Product</p>
+                    <img class="shopping-cart" src="{{ url_for('static', filename='images/shopping_cart.png') }}" alt="Shopping-Cart-icon">
+                </div>
+                <div class="store-items d-flex flex-wrap">
+                    <div class="store-content me-3 mb-3 d-flex">
+                        <img class="tshirt-emblem" src="{{ url_for('static', filename='images/tshirt.jpeg') }}" alt="">
+                        <div class="item-desc">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa, vitae omnis commodi iste ullam voluptates officiis esse. Et quas numquam expedita esse fuga! Explicabo ad itaque quo delectus odio.</p>
+                            <div class="price d-flex justify-content-between">
+                                <p><strong>Price</strong></p>
+                                <p><strong>$$</strong></p>
+                            </div>
+                            <button class="purchase">Buy</button>
+                        </div>
+                    </div>
+                    <div class="store-content me-3 mb-3 d-flex">
+                        <img class="tshirt-emblem" src="{{ url_for('static', filename='images/tshirt.jpeg') }}" alt="">
+                        <div class="item-desc">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa, vitae omnis commodi iste ullam voluptates officiis esse. Et quas numquam expedita esse fuga! Explicabo ad itaque quo delectus odio.</p>
+                            <div class="price d-flex justify-content-between">
+                                <p><strong>Price</strong></p>
+                                <p><strong>$$</strong></p>
+                            </div>
+                            <button class="purchase">Buy</button>
+                        </div>
+                    </div>
+                    <div class="store-content me-3 mb-3 d-flex">
+                        <img class="tshirt-emblem" src="{{ url_for('static', filename='images/tshirt.jpeg') }}" alt="">
+                        <div class="item-desc">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa, vitae omnis commodi iste ullam voluptates officiis esse. Et quas numquam expedita esse fuga! Explicabo ad itaque quo delectus odio.</p>
+                            <div class="price d-flex justify-content-between">
+                                <p><strong>Price</strong></p>
+                                <p><strong>$$</strong></p>
+                            </div>
+                            <button class="purchase">Buy</button>
+                        </div>
+                    </div>
+                    <div class="store-content me-3 mb-3 d-flex">
+                        <img class="tshirt-emblem" src="{{ url_for('static', filename='images/tshirt.jpeg') }}" alt="">
+                        <div class="item-desc">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa, vitae omnis commodi iste ullam voluptates officiis esse. Et quas numquam expedita esse fuga! Explicabo ad itaque quo delectus odio.</p>
+                            <div class="price d-flex justify-content-between">
+                                <p><strong>Price</strong></p>
+                                <p><strong>$$</strong></p>
+                            </div>
+                            <button class="purchase">Buy</button>
+                        </div>
+                    </div>
+                    <div class="store-content me-3 mb-3 d-flex">
+                        <img class="tshirt-emblem" src="{{ url_for('static', filename='images/tshirt.jpeg') }}" alt="">
+                        <div class="item-desc">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa, vitae omnis commodi iste ullam voluptates officiis esse. Et quas numquam expedita esse fuga! Explicabo ad itaque quo delectus odio.</p>
+                            <div class="price d-flex justify-content-between">
+                                <p><strong>Price</strong></p>
+                                <p><strong>$$</strong></p>
+                            </div>
+                            <button class="purchase">Buy</button>
+                        </div>
+                    </div>
+                    <div class="store-content me-3 mb-3 d-flex">
+                        <img class="tshirt-emblem" src="{{ url_for('static', filename='images/tshirt.jpeg') }}" alt="">
+                        <div class="item-desc">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa, vitae omnis commodi iste ullam voluptates officiis esse. Et quas numquam expedita esse fuga! Explicabo ad itaque quo delectus odio.</p>
+                            <div class="price d-flex justify-content-between">
+                                <p><strong>Price</strong></p>
+                                <p><strong>$$</strong></p>
+                            </div>
+                            <button class="purchase">Buy</button>
+                        </div>
+                    </div>
+                    <div class="store-content me-3 mb-3 d-flex">
+                        <img class="tshirt-emblem" src="{{ url_for('static', filename='images/tshirt.jpeg') }}" alt="">
+                        <div class="item-desc">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa, vitae omnis commodi iste ullam voluptates officiis esse. Et quas numquam expedita esse fuga! Explicabo ad itaque quo delectus odio.</p>
+                            <div class="price d-flex justify-content-between">
+                                <p><strong>Price</strong></p>
+                                <p><strong>$$</strong></p>
+                            </div>
+                            <button class="purchase">Buy</button>
+                        </div>
+                    </div>
+                    <div class="store-content me-3 mb-3 d-flex">
+                        <img class="tshirt-emblem" src="{{ url_for('static', filename='images/tshirt.jpeg') }}" alt="">
+                        <div class="item-desc">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa, vitae omnis commodi iste ullam voluptates officiis esse. Et quas numquam expedita esse fuga! Explicabo ad itaque quo delectus odio.</p>
+                            <div class="price d-flex justify-content-between">
+                                <p><strong>Price</strong></p>
+                                <p><strong>$$</strong></p>
+                            </div>
+                            <button class="purchase">Buy</button>
+                        </div>
+                    </div>
+                    <div class="store-content me-3 mb-3 d-flex">
+                        <img class="tshirt-emblem" src="{{ url_for('static', filename='images/tshirt.jpeg') }}" alt="">
+                        <div class="item-desc">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa, vitae omnis commodi iste ullam voluptates officiis esse. Et quas numquam expedita esse fuga! Explicabo ad itaque quo delectus odio.</p>
+                            <div class="price d-flex justify-content-between">
+                                <p><strong>Price</strong></p>
+                                <p><strong>$$</strong></p>
+                            </div>
+                            <button class="purchase">Buy</button>
+                        </div>
+                    </div>
+                    <div class="store-content me-3 mb-3 d-flex">
+                        <img class="tshirt-emblem" src="{{ url_for('static', filename='images/tshirt.jpeg') }}" alt="">
+                        <div class="item-desc">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa, vitae omnis commodi iste ullam voluptates officiis esse. Et quas numquam expedita esse fuga! Explicabo ad itaque quo delectus odio.</p>
+                            <div class="price d-flex justify-content-between">
+                                <p><strong>Price</strong></p>
+                                <p><strong>$$</strong></p>
+                            </div>
+                            <button class="purchase">Buy</button>
+                        </div>
+                    </div>
+                    <div class="store-content me-3 mb-3 d-flex">
+                        <img class="tshirt-emblem" src="{{ url_for('static', filename='images/tshirt.jpeg') }}" alt="">
+                        <div class="item-desc">
+                            <h3>Description</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsa, vitae omnis commodi iste ullam voluptates officiis esse. Et quas numquam expedita esse fuga! Explicabo ad itaque quo delectus odio.</p>
+                            <div class="price d-flex justify-content-between">
+                                <p><strong>Price</strong></p>
+                                <p><strong>$$</strong></p>
+                            </div>
+                            <button class="purchase">Buy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-copyright">
+                    <img class="cr-logo me-2" src="{{ url_for('static', filename='images/copyright-symbol.png') }}" alt="Copyright-logo">
+                    <p>JustifyedMusic 2023</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/profile_dropdown.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 5px 100px;
+    background-color: #212529;
+}
+
+.nav-bar-header{
+    font-weight: bold;
+    color: #a47e1b;
+    font-size: 3rem;
+}
+
+.right-nav {
+    color: #ffbf69;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.right-nav:hover {
+    color: #fb8b24;
+}
+
+.search-bar {
+    padding: 0px 600px 0px 10px;
+    height: 40px;
+    background-color: #dad7cd;
+    border-radius: 100px;
+}
+
+.submit {
+    padding: 5px;
+    background-color: #212529;
+    box-shadow: 1px 1px 5px #000;
+    border: none;
+}
+
+.submit-text {
+    color: #a47e1b;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.main-content {
+    margin-top: 75px;
+}
+
+.side-nav {
+    height: 886px;
+    padding: 20px;
+    border-right: 2px solid #000;
+    background-color: #d9d9d9;
+}
+
+.account {
+    border-bottom: 2px solid #000;
+}
+
+.account a {
+    margin: 20px 0px 30px 0px;
+}
+
+.settings {
+    margin-top: 20px;
+    height: 200px;
+    border-bottom: 2px solid #000;
+}
+
+.settings a {
+    margin-top: 20px;
+}
+
+.profile-content {
+    padding: 60px;
+    width: 1650px;
+    border-right: 2px solid #000;
+    background-color: #a2d2ff;
+}
+
+.profile-headers {
+    font-weight: bold;
+}
+
+textarea[name=description] {
+    resize: none;
+}
+
+.user-info {
+    font-weight: bold;
+    color: #a47e1b;
+}
+
+.description-submit {
+    width: fit-content;
+    background-color: #212529;
+    padding: 7px;
+    margin-top: 10px;
+    color: #a47e1b;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.profile-pic {
+    border: 2px solid #000;
+    position: absolute;
+    right: 655px;
+    bottom: 325px;
+    height: 550px;
+    width: 550px;
+    border-radius: 50%;
+}
+
+.user-email, .user-description {
+    margin-top: 120px;
+}
+
+.update-info {
+    margin-top: 200px;
+}
+
+
+.bottom-copyright {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 65px;
+}
+
+.bottom-copyright-second {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 150px;
+}
+
+.cr-logo {
+    height: 20px;
+}

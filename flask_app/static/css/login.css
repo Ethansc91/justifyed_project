@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 5px 100px;
+    background-color: #212529;
+}
+
+.nav-bar-header{
+    font-weight: bold;
+    color: #a47e1b;
+    font-size: 3rem;
+}
+
+.left-nav {
+    color: #ffbf69;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.left-nav:hover {
+    color: #fb8b24;
+}
+
+
+.login {
+    margin: auto;
+    margin-top: 120px;
+    padding: 30px 50px;
+    width: 700px;
+    border: #353535 solid 2px;
+    box-shadow: 1px 1px 5px #000;
+}
+
+.register-link {
+    color: #a47e1b;
+}
+
+
+.container-header {
+    font-weight: bold;
+    color: #98c1d9;
+}
+
+.submit {
+    background-color: #212529;
+    border: none;
+    box-shadow: 1px 1px 5px #000;
+    color: #a47e1b;
+    font-weight: bold;
+    padding: 5px 10px;
+    float: right;
+}
+
+.bottom-copyright {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 412px;
+}
+
+
+.cr-logo {
+    height: 20px;
+}
+
+.about {
+    margin-top: 125px;
+}
+
+
+.content-container {
+    width: 1000px;
+}
+
+.login-photos {
+    height: 300px;
+    margin-right: 50px;
+}
+
+.form-explain {
+    color: #001c55;
+    margin-top: 100px;
+}
+
