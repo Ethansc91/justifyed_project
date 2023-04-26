@@ -16,13 +16,6 @@ class Form:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
-    @classmethod
-    def send_form_via_email(cls, data):
-        query = """INSERT INTO forms(name, email, church_name, church_address, description)
-        VALUES(%(name)s,%(email)s,%(church_name)s,%(church_address)s,%(description)s)"""
-        return connectToMySQL(cls.db).query_db(query, data)
-    
-
     @staticmethod
     def validate_form(data):
         is_valid = True

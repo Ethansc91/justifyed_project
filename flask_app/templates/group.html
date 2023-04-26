@@ -16,7 +16,7 @@
         <div class="nav-bar d-flex justify-content-between align-items-center">
             <div class="left-side justify-content-between d-flex align-items-center">
                 <h1 class="nav-bar-header me-5">Justifyed</h1>
-                <input class="search-bar" type="text" placeholder="...Search">
+                <input id="search" class="search-bar" type="text" value="" placeholder="...Search" onchange="openPage()">
             </div>
             <div class="right-side d-flex align-items-center">
                 <a class="right-nav  me-5" href="/home">Home</a></li>
@@ -90,5 +90,6 @@
         <p>JustifyedMusic 2023</p>
     </div>
     <script type="text/javascript" src="{{ url_for('static', filename='js/profile_dropdown.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/search.js') }}"></script>
 </body>
 </html>

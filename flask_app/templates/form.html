@@ -19,7 +19,7 @@
         <div class="church-form">
             <h5 class="text-center">Want us to sing at your church</h5>
             <h6 class="text-success text-center">Fill out form below</h6>
-            <form action="/submit_form" method="POST">
+            <form action="https://formsubmit.co/" method="POST">
                 {% with messages = get_flashed_messages(category_filter=['form']) %}
                     {% if messages %}
                         {% for message in messages %}
@@ -45,6 +45,8 @@
                     <a class="back-login" href="/">Back to Login</a>
                     <input class="submit" type="submit" value="Send">
                 </div>
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="http://127.0.0.1:5000/">
             </form>
         </div>
     </div>

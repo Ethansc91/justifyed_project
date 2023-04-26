@@ -43,10 +43,23 @@
                     <label class="labels" for="description">Description:</label>
                     <textarea name="description" class="form-control mt-2">{{user.description}}</textarea>
                 {% endif %}
+                {% with messages = get_flashed_messages(category_filter=['upload_image']) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="text-danger"> {{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
                 <div class="d-flex justify-content-between align-items-center mt-3">
                     <a class="back-login" href="/profile">Back to Profile</a>
                     <input class="submit" type="submit">
                 </div>
+            </form>
+            <div class="image_upload mt-5 border-bottom"></div>
+            <h3 class="text-center mt-3">Add a Profile Picture</h3>
+            <form action="/upload_image" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" class="form-control" autocomplete="off" required>
+                <input type="submit" value="Add Image" class="btn btn-info mt-2">
             </form>
         </div>
     </div>

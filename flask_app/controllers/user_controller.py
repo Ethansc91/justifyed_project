@@ -3,8 +3,14 @@ from flask import render_template, redirect, session, flash, request
 from flask_app.models.user_model import User
 from flask_app.models.comment_model import Comment
 from flask_bcrypt import Bcrypt
+from werkzeug.utils import secure_filename
+import os
 bcrypt = Bcrypt(app)
 
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jepg', 'gif'])
+
+def allowed_file(filename):
+    return '-' in filename and filename.rsplit('-', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/')
 def login_page():
@@ -83,6 +89,26 @@ def profile_page():
         'id': session['user']
     }
     return render_template('profile_settings.html', user=User.get_user_by_id(data))
+
+@app.route('/upload_image/<int:id>', methods=['POST'])
+def upload_image(id):
+    user = User.get_user_by_id()
+    if 'file' not in request.files:
+        flash('No file part', 'upload_image')
+        return redirect(f'/update_user/{user.id}')
+    file = request.files['file']
+    if file.filename == '':
+        flash('No image selected', 'upload_image')
+        return redirect(f'/update_user/{user.id}')
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        flash('Image succefully uploaded', 'upload_image')
+        return redirect('/profile')
+    else:
+        flash('Allowed image types are - png, jpg, jpeg, gif', 'upload_image')
+        return redirect(f'/update_user/{user.id}')
+
 
 @app.route('/update_user/<int:id>')
 def update_user_page(id):

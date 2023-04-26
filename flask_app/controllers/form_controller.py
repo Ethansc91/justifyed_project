@@ -23,7 +23,6 @@ def form_submit():
         'church_address':request.form['church_address'],
         'description':request.form['description']
     }
-    Form.send_form_via_email(data)
     if 'user' not in session:
         return redirect('/')
     return redirect('/home')
